@@ -27,23 +27,23 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
   };
 
   return (
-    <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header with Title, Accent Bar, and View All CTA */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-4 sm:mb-8">
         <div>
           <div className="flex items-center gap-3">
-            <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-neutral-900 tracking-tight">
               {t.featured.title}
             </h2>
             {/* Signature Yellow Accent Bar */}
             <div className="w-12 sm:w-16 h-1.5 bg-babjus-yellow rounded-full" />
           </div>
-          <p className="text-sm sm:text-base text-neutral-500 mt-2 font-medium">
+          <p className="hidden sm:block text-sm sm:text-base text-neutral-500 mt-2 font-medium">
             {t.featured.subtitle}
           </p>
         </div>
 
-        <div className="flex items-center gap-3 self-end md:self-auto">
+        <div className="flex items-center gap-3 self-start md:self-auto">
           {/* View full menu link */}
           <button
             onClick={onViewAll}
@@ -60,14 +60,14 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
           {/* Navigational Arrows */}
           <button
             onClick={() => handleScroll(isRtl ? 'right' : 'left')}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-700 shadow-sm hover:shadow transition-all"
+            className="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 items-center justify-center text-neutral-700 shadow-sm hover:shadow transition-all"
             aria-label="Previous dishes"
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={() => handleScroll(isRtl ? 'left' : 'right')}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-700 shadow-sm hover:shadow transition-all"
+            className="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 items-center justify-center text-neutral-700 shadow-sm hover:shadow transition-all"
             aria-label="Next dishes"
           >
             <ChevronRight size={20} />
@@ -78,12 +78,12 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
       {/* Product Cards Carousel */}
       <div
         ref={scrollContainerRef}
-        className="flex gap-5 sm:gap-6 overflow-x-auto no-scrollbar pb-6 pt-2 px-1 scroll-smooth snap-x snap-mandatory"
+        className="flex gap-3 sm:gap-6 overflow-x-auto no-scrollbar pb-3 sm:pb-6 pt-2 px-1 scroll-smooth snap-x snap-mandatory"
       >
         {products.map((product) => (
           <div
             key={product.id}
-            className="w-[260px] sm:w-[280px] lg:w-[300px] flex-shrink-0 snap-start"
+            className="w-[216px] sm:w-[280px] lg:w-[300px] flex-shrink-0 snap-start"
           >
             <ProductCard product={product} onOpenModal={onOpenModal} />
           </div>

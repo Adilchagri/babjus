@@ -8,7 +8,7 @@ export const Footer: React.FC<{ onNavigate: (tab: string) => void }> = ({ onNavi
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-babjus-dark text-white pt-14 pb-8 border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-babjus-dark text-white pt-14 pb-24 lg:pb-8 border-t border-white/10 relative overflow-hidden">
       {/* Background organic leaf texture hint */}
       <div className="absolute right-0 bottom-0 w-80 h-80 bg-babjus-forest/40 rounded-full blur-3xl pointer-events-none" />
 

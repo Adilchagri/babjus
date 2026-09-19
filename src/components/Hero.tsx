@@ -3,6 +3,7 @@ import { ArrowRight, ArrowLeft, ChevronDown, Phone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { RESTAURANT_INFO } from '../data/products';
 import { motion } from 'framer-motion';
+import { Logo } from './Logo';
 
 interface HeroProps {
   onExploreMenu: () => void;
@@ -45,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
   ];
 
   return (
-    <section className="relative h-[100svh] min-h-[100svh] max-h-[100svh] lg:h-auto lg:min-h-[88vh] lg:max-h-none bg-babjus-dark text-white flex flex-col justify-between pt-20 sm:pt-24 lg:pt-28 pb-3 sm:pb-6 lg:pb-16 overflow-hidden">
+    <section className="relative h-[84svh] min-h-[570px] max-h-[720px] sm:h-[92svh] sm:min-h-[680px] sm:max-h-none lg:h-auto lg:min-h-[88vh] lg:max-h-none bg-babjus-dark text-white flex flex-col justify-between pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-6 lg:pb-16 overflow-hidden">
       {/* Background Food & Atmosphere Image & Overlays */}
       <div className="absolute inset-0 z-0">
         <img
@@ -72,55 +73,27 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="max-w-2xl lg:max-w-3xl flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-6"
+          className="max-w-2xl lg:max-w-3xl flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-6 pt-6 sm:pt-0"
         >
           {/* Handwritten Phrase */}
           <div className="inline-block">
-            <span className="font-script text-2xl sm:text-3xl lg:text-4xl text-white/90 tracking-wide drop-shadow-md">
+            <span className="font-script text-3xl sm:text-3xl lg:text-4xl text-white/90 tracking-wide drop-shadow-md">
               {t.hero.tagline}
             </span>
           </div>
 
-          {/* Main Brand Headline with Signature Chef Hat */}
+          {/* Official wordmark: kept as one component so the hat and lettering never overlap. */}
           <div className="space-y-1 sm:space-y-2">
-            <div className="flex items-center gap-1.5 relative">
-              {/* Yellow Chef Hat tilted over Babjus */}
-              <div className="relative -mr-2 z-10 -mt-3 sm:-mt-5">
-                <svg
-                  className="w-9 h-8 sm:w-14 sm:h-12 lg:w-16 lg:h-14 transform -rotate-12 drop-shadow-lg"
-                  viewBox="0 0 40 34"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 14C8 14 5 17 6 22C4 23 3 26 5 28C7 30 11 30 12 30H28C29 30 33 30 35 28C37 26 36 23 34 22C35 17 32 14 28 14C28 9 22 7 19 8C16 7 12 9 12 14Z"
-                    fill="#FFD900"
-                    stroke="#0B100D"
-                    strokeWidth="2.5"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M9 30H31V33C31 34 30 34 29 34H11C10 34 9 34 9 33V30Z"
-                    fill="#FFD900"
-                    stroke="#0B100D"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
+            <h1 className="sr-only">Babjus Restaurant</h1>
+            <Logo variant="dark" size="hero" />
 
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-none drop-shadow-xl">
-                <span className="text-babjus-yellow">Bab</span>
-                <span className="text-green-500">jus</span>
-              </h1>
-            </div>
-
-            <p className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white/95 leading-tight tracking-tight drop-shadow-md">
+            <p className="max-w-sm text-lg sm:text-3xl lg:text-4xl font-extrabold text-white/95 leading-tight tracking-tight drop-shadow-md">
               {t.hero.subtitle}
             </p>
           </div>
 
           {/* Food Badges / Atmosphere Pills */}
-          <div className="flex flex-wrap items-center gap-2 pt-0.5 sm:pt-1">
+          <div className="hidden sm:flex flex-wrap items-center gap-2 pt-0.5 sm:pt-1">
             <span className="px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[11px] sm:text-xs lg:text-sm font-semibold text-white/95 shadow-md">
               🍕 Pizzas au feu de bois
             </span>
@@ -133,7 +106,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
           </div>
 
           {/* Social Media Icons with Links (Instagram, Facebook, WhatsApp) */}
-          <div className="pt-1 sm:pt-2">
+          <div className="hidden sm:block pt-1 sm:pt-2">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white/80">
                 {isRtl ? 'تابعونا واطلبوا مباشرة :' : 'Suivez-nous & Commandez :'}
@@ -162,7 +135,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
           <div className="pt-2 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
             <button
               onClick={onExploreMenu}
-              className="inline-flex items-center gap-2.5 sm:gap-3 bg-babjus-yellow hover:bg-babjus-yellowHover text-babjus-dark font-black text-sm sm:text-base lg:text-lg px-7 sm:px-9 py-3.5 sm:py-4 rounded-full shadow-2xl hover:shadow-yellow-glow transition-all duration-300 transform active:scale-95 group"
+              className="inline-flex items-center gap-2.5 sm:gap-3 bg-babjus-yellow hover:bg-babjus-yellowHover text-babjus-dark font-black text-sm sm:text-base lg:text-lg px-6 sm:px-9 py-3.5 sm:py-4 rounded-full shadow-2xl hover:shadow-yellow-glow transition-all duration-300 transform active:scale-95 group"
             >
               <span>{t.hero.primaryCta.replace('→', '').replace('←', '').trim()}</span>
               {isRtl ? (
@@ -176,7 +149,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
               href={`https://wa.me/${RESTAURANT_INFO.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-white/15 hover:bg-white/25 border border-white/25 text-white font-bold text-xs sm:text-sm lg:text-base backdrop-blur-md transition-all transform active:scale-95 shadow-md"
+              className="hidden sm:inline-flex items-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-white/15 hover:bg-white/25 border border-white/25 text-white font-bold text-xs sm:text-sm lg:text-base backdrop-blur-md transition-all transform active:scale-95 shadow-md"
             >
               <Phone size={16} className="text-green-400" />
               <span>{RESTAURANT_INFO.phoneDisplay}</span>
@@ -188,7 +161,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
       {/* Mobile Indicator to invite scrolling down to menu */}
       <button
         onClick={onExploreMenu}
-        className="lg:hidden relative z-10 flex flex-col items-center justify-center pb-2 pt-1 text-white/60 hover:text-babjus-yellow transition-colors animate-bounce cursor-pointer"
+        className="lg:hidden relative z-10 flex flex-col items-center justify-center pb-0 pt-1 text-white/60 hover:text-babjus-yellow transition-colors animate-bounce cursor-pointer"
         aria-label="Défiler vers le menu"
       >
         <span className="text-[10px] uppercase tracking-widest font-semibold mb-0.5">

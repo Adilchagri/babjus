@@ -12,6 +12,7 @@ import { CartDrawer } from './components/CartDrawer';
 import { SearchModal } from './components/SearchModal';
 import { AboutModal } from './components/AboutModal';
 import { ToastNotification } from './components/ToastNotification';
+import { MobileBottomNav } from './components/MobileBottomNav';
 import { MenuPage } from './pages/MenuPage';
 
 import { CATEGORIES, FEATURED_PRODUCTS, type Product } from './data/products';
@@ -59,7 +60,7 @@ export const AppContent: React.FC = () => {
       />
 
       {/* Main View Router */}
-      <main className="flex-grow">
+      <main className="flex-grow pb-16 lg:pb-0">
         {activeTab === 'menu' ? (
           <MenuPage
             onOpenModal={(product) => setSelectedProduct(product)}
@@ -107,6 +108,12 @@ export const AppContent: React.FC = () => {
 
       {/* Footer */}
       <Footer onNavigate={handleNavigate} />
+
+      <MobileBottomNav
+        activeTab={activeTab}
+        onNavigate={handleNavigate}
+        onOpenSearch={() => setIsSearchOpen(true)}
+      />
 
       {/* Global Modals & Notifications */}
       <ProductModal

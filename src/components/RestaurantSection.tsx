@@ -14,12 +14,12 @@ export const RestaurantSection: React.FC<RestaurantSectionProps> = ({
   const { t, isRtl } = useLanguage();
 
   return (
-    <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Left 7 Columns: Physical Restaurant Storefront + Storytelling & Metrics */}
         <div className="lg:col-span-7 bg-babjus-forest text-white rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between border border-white/10">
           {/* Top Half: Real Physical Storefront Image */}
-          <div className="relative h-64 sm:h-80 w-full overflow-hidden">
+          <div className="relative h-52 sm:h-80 w-full overflow-hidden">
             <img
               src="/assets/restaurant_storefront.jpg"
               alt="Babjus Restaurant El Jadida"
@@ -35,7 +35,7 @@ export const RestaurantSection: React.FC<RestaurantSectionProps> = ({
           </div>
 
           {/* Bottom Half: Storytelling & Key Metrics */}
-          <div className="p-6 sm:p-8 space-y-6">
+          <div className="p-5 sm:p-8 space-y-5 sm:space-y-6">
             <div>
               <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight">
                 {t.experience.title}
